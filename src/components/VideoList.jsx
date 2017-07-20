@@ -1,8 +1,7 @@
 var VideoList = (props) => (
   <div className="video-list">
-  {console.log(props)}
     {props.videos.map((video) =>
-      <VideoListEntry video = {video.snippet.thumbnails.default}/>
+      <VideoListEntry video = {video.snippet}/>
     )}
   </div>
 );
