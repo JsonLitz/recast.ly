@@ -1,10 +1,20 @@
 class App extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      videos: exampleVideoData,
+      selectedVideo: exampleVideoData[0]
+    };
+  }
+  onclick () {
+    this.state ({//setState()
+      video: clickedVideo
+    })
+  }
 
-  };
+
   render(){
-  return (
+    return (
     <div>
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
@@ -14,7 +24,7 @@ class App extends React.Component {
       <div className="row">
         <div className="col-md-7">
           <div>
-            <VideoPlayer video = {exampleVideoData[0]}/>
+            <VideoPlayer video = this.state.selectedVideo/>
           </div>
         </div>
         <div className="col-md-5">
@@ -24,7 +34,7 @@ class App extends React.Component {
       </div>
     </div>
   );
-}
+  }
 }
 
 
