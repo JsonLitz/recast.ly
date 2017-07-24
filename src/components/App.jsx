@@ -6,12 +6,24 @@ class App extends React.Component {
       selectedVideo: exampleVideoData[0]
     };
   }
+
   handleVideoListEntryTitleClick (video) {
     this.setState ({
       selectedVideo: video
     });
   }
 
+  performSearch (query) { 
+    searchYouTube(options, (videos) =>
+    this.setState({
+      videos: videos,
+      selectedVideo: videos[0]
+    })}
+  )
+
+  callBack () {
+
+  }
   render() {
     return (
     <div>
@@ -20,7 +32,7 @@ class App extends React.Component {
           <Search />
         </div>
       </nav>
-      {console.log(window.searchYouTube)}
+      {console.log(props)}
       <div className="row">
         <div className="col-md-7">
           <div>
