@@ -5,15 +5,18 @@ class App extends React.Component {
       videos: exampleVideoData,
       selectedVideo: exampleVideoData[0]
     };
+    // this.onClick = this.onClick.bind(this);
   }
-  onclick () {
-    this.state ({//setState()
-      video: clickedVideo
+  handleVideoListEntryTitleClick (video) {
+    console.log("video")
+
+    this.setState ({
+      selectedVideo: video
     })
   }
 
 
-  render(){
+  render() {
     return (
     <div>
       <nav className="navbar">
@@ -24,18 +27,21 @@ class App extends React.Component {
       <div className="row">
         <div className="col-md-7">
           <div>
-            <VideoPlayer video = this.state.selectedVideo/>
+            <VideoPlayer video = {this.state.selectedVideo}/>
           </div>
         </div>
         <div className="col-md-5">
-          <VideoList videos = {exampleVideoData}/>
-          {console.log(exampleVideoData)}
+          <VideoList
+            handleVideoListEntryTitleClick = {this.handleVideoListEntryTitleClick.bind(this)}
+            videos = {exampleVideoData}/>
         </div>
       </div>
     </div>
   );
   }
 }
+
+
 
 
 

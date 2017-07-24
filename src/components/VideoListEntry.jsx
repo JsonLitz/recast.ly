@@ -1,12 +1,18 @@
-var VideoListEntry = (props) => (
+var VideoListEntry = ({video, handleVideoListEntryTitleClick}) => (
   <div className="video-list-entry media">
     <div className="media-left media-middle">
-      {console.log(props.video.thumbnails.default.url)}
-      <img className="media-object" src={props.video.thumbnails.default.url} alt="" />
+      <img className="media-object" src={video.snippet.thumbnails.default.url} alt="" />
     </div>
     <div className="media-body">
-      <div className="video-list-entry-title">{props.video.title}</div>
-      <div className="video-list-entry-detail">{props.video.description}</div>
+      <div
+        className="video-list-entry-title"
+        onClick = {() => {
+          handleVideoListEntryTitleClick(video)
+          }
+        }
+        >
+        {video.snippet.title}</div>
+      <div className="video-list-entry-detail">{video.snippet.description}</div>
     </div>
   </div>
 );
