@@ -7,8 +7,8 @@ var VideoListEntry = ({video, handleVideoListEntryTitleClick}) => (
       <div
         className="video-list-entry-title"
         onClick = {() => {
-          handleVideoListEntryTitleClick(video)
-          }
+          handleVideoListEntryTitleClick(video);
+        }
         }
         >
         {video.snippet.title}</div>
