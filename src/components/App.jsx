@@ -13,36 +13,59 @@ class App extends React.Component {
     });
   }
 
-  performSearch (query) { 
+  performSearch (query) {
     searchYouTube(options, (videos) =>
     this.setState({
       videos: videos,
       selectedVideo: videos[0]
-    })}
+    })
   )
 
-  callBack () {
+  class Greet extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        date: new Date()
+      };
+    }
 
+  render() {
+    return (
+      <div>
+        <Sup
+
+          />
+      </div>
+    );
   }
+}
+
   render() {
     return (
     <div>
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
+
           <Search />
+
         </div>
       </nav>
       {console.log(props)}
       <div className="row">
         <div className="col-md-7">
           <div>
+
             <VideoPlayer video = {this.state.selectedVideo}/>
+
           </div>
         </div>
         <div className="col-md-5">
+
           <VideoList
             handleVideoListEntryTitleClick = {this.handleVideoListEntryTitleClick.bind(this)}
-            videos = {exampleVideoData}/>
+            videos = {exampleVideoData}
+            />
+
         </div>
       </div>
     </div>
